@@ -29,8 +29,7 @@ const AddEditAirplane = () => {
     )
       toast.error("Required Fields are empty");
     else {
-      if(!id)
-      {
+      if (!id) {
 
         Axios
           .post("http://localhost:5001/airplane/api/post", {
@@ -42,13 +41,13 @@ const AddEditAirplane = () => {
               airplane_id: "",
               max_seats: "",
             });
-            if(response.data.err)
-            console.log(response.data.err)
+            if (response.data.err)
+              console.log(response.data.err)
           })
           .catch((err) => toast.error(err.response.data));
-          toast.success('Airplane Added Successfully');
+        toast.success('Airplane Added Successfully');
       }
-      else{
+      else {
         Axios
           .put(`http://localhost:5001/airplane/api/update/${id}`, {
             airplane_id,
@@ -59,11 +58,11 @@ const AddEditAirplane = () => {
               airplane_id: "",
               max_seats: "",
             });
-            if(response.data.err)
-            console.log(response.data.err)
+            if (response.data.err)
+              console.log(response.data.err)
           })
           .catch((err) => toast.error(err.response.data));
-          toast.success('Airplane Updated Successfully');
+        toast.success('Airplane Updated Successfully');
       }
       setTimeout(() => history.push("/Airplane"), 500);
     }
@@ -101,7 +100,7 @@ const AddEditAirplane = () => {
           onChange={handleInputChange}
         />
 
-        
+
         <input type="submit" value={id ? "Update" : "Add"} />
         <Link to="/Airplane">
           <input type="button" value="Back"></input>

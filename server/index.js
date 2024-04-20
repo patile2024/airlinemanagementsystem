@@ -9,7 +9,7 @@ const { application } = require("express");
 const db= mysql.createPool({
     host:"localhost",
     user:"root",
-    password:"fast123",
+    password:"02122021",
     database:"airport_management"
 });
 
@@ -605,6 +605,6 @@ app.get("/getstats",(req,res)=>{
     })
 })
 
-app.listen(5000, ()=>{
-    console.log("Server is running on port 5000!");
+app.listen(5001, ()=>{
+    console.log("Server is running on port 5001!");
 });
